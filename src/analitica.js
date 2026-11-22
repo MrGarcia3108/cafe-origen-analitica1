@@ -114,10 +114,15 @@ function topProductosPorValor(ventas, k) {
     .map(([producto, valor]) => ({ producto, valor }));
 } 
 
+function ventasDelDia(ventas, fecha) {
+  return ventas.filter(v => v.fecha === fecha);
+}
 
-console.log(totalPorCiudad(ventas));
+
+/* console.log(totalPorCiudad(ventas));
 console.log(unidadesPorProducto(ventas));
-console.log(topProductosPorValor(ventas));
+console.log(topProductosPorValor(ventas, 3));
+console.log(ventasDelDia(ventas, "2026-09-01")); */ 
 
 module.exports = {
   valorVenta,
@@ -128,7 +133,11 @@ module.exports = {
   ventasPorCiudad,
   totalVendidoM,
   unidadesVendidasM,
-  ventasPorCiudadM
+  ventasPorCiudadM,
+  totalPorCiudad,
+  unidadesPorProducto,
+  topProductosPorValor,
+  ventasDelDia
 };
 
 /* // cantidad de datos
