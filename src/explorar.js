@@ -14,7 +14,7 @@ const {
 console.log("TOTAL:", totalVendido(ventas));
 console.log("UNIDADES:", unidadesVendidas(ventas));
 console.log("VENTA MAYOR:", ventaMayor(ventas));
-console.log("TICKET PROMEDIO:", ticketPromedio(ventas));
+console.log("TICKET PROMEDIO:", Math.round(ticketPromedio(ventas)));
 console.log("VENTAS MEDELLÍN:", ventasPorCiudad(ventas, "Medellín"));
 
 // Prueba con un solo registro
@@ -25,6 +25,7 @@ console.log("UNA VENTA - UNIDADES:", unidadesVendidas(unaVenta));
 console.log("UNA VENTA - MAYOR:", ventaMayor(unaVenta));
 console.log("UNA VENTA - PROMEDIO:", ticketPromedio(unaVenta));
 console.log("UNA VENTA - CIUDAD:", ventasPorCiudad(unaVenta, "Medellín"));
+console.log("UNA VENTA - VALOR", valorVenta(unaVenta));
 
 // Prueba con arreglo vacío
 const ventasVacias = [];

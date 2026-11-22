@@ -78,4 +78,48 @@ Resultado: 985000.
 | 11 | Medellín | Sí | 356000 |
 | 12 | Bogotá | No | 356000 |
 
-Resultado: 356000.  
+Resultado: 356000.
+
+## Reto 3: ciclo vs metodos
+
+### totalVendidoM
+- Recorro: todas las ventas.
+- Filtro: nada.
+- Transformo: valor con map.
+- Acumulo: iniciando en 0.
+- Agrupo: no agrupo.
+
+### unidadesVendidasM
+- Recorro: todas las ventas.
+- Filtro: nada.
+- Transformo: cada venta en su cantidad con map.
+- Acumulo: iniciando en 0.
+- Agrupo: no agrupo.
+
+### ventasPorCiudadM
+- Recorro: todas las ventas.
+- Filtro: las de la ciudad buscada.
+- Transformo: venta valor con map.
+- Acumulo: iniciando en 0.
+- Agrupo: no agrupo.
+
+### totalPorCiudad
+- Recorro: todas las ventas.
+- Filtro: nada.
+- Transformo: con trim y toLowerCase, "Bogota" y "Bogota ".
+- Acumulo: el valor de cada venta.
+- Agrupo: la clave es la ciudad.
+
+### unidadesPorProducto
+- Recorro: todas las ventas.
+- Filtro: nada.
+- Transformo: nada.
+- Acumulo: la cantidad de cada venta en las unidades de su producto.
+- Agrupo: con un objeto donde la clave es el producto.
+
+### topProductosPorValor
+- Recorro: todas las ventas.
+- Filtro: con slice.
+- Transformo: nada.
+- Acumulo: el valor de cada venta.
+- Agrupo: con un objeto por producto.

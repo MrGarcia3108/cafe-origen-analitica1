@@ -56,7 +56,68 @@ function ventasPorCiudad(ventas, ciudad) {
     return total
 }
 
+// Con Metodos
 
+function totalVendidoM(ventas) {
+    return ventas
+    .map((v) => valorVenta(v))
+    .reduce((acum, v) => acum + v, 0);
+}
+
+function unidadesVendidasM(ventas) {
+    return ventas
+    .map((v) => v.cantidad)
+    .reduce((acum, v) => acum + v , 0);
+}
+
+function ventasPorCiudadM(ventas, ciudad){
+    const buscada = ciudad.trim().toLowerCase();
+    return ventas
+    .filter((v) => v.ciudad.trim().toLowerCase() === buscada)
+    .map((v) => valorVenta(v))
+    .reduce((acum, v) => acum + v, 0);
+}
+
+/* function totalPorCiudad(ventas) {
+    const total = {}
+    for (const v of ventas) {
+        const ciudad = v.ciudad.trim().toLowerCase();
+        if (total[ciudad] === undefined) 
+            total[ciudad] = 0;
+            total[ciudad] += valorVenta(v);
+    }
+    return total;
+} */
+function totalPorCiudad(ventas) {
+  return ventas.reduce((acum, v) => {
+    const ciudad = v.ciudad.trim().toLowerCase();
+    acum[ciudad] = (acum[ciudad] || 0) + valorVenta(v);
+    return acum;
+  }, {});
+}
+
+function unidadesPorProducto(ventas) {
+    return ventas.reduce((acum, v) => {
+        acum[v.producto] = (acum[v.producto] || 0) + v.cantidad;
+        return acum;
+    }, {});
+}
+
+function topProductosPorValor(ventas, k) {
+    const porProducto = ventas.reduce((acum, v) => {
+        acum[v.producto] = (acum[v.producto] || 0) + valorVenta(v);
+        return acum;
+    }, {});
+    return Object.entries(porProducto)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0 , k)
+    .map(([producto, valor]) => ({ producto, valor }));
+} 
+
+
+console.log(totalPorCiudad(ventas));
+console.log(unidadesPorProducto(ventas));
+console.log(topProductosPorValor(ventas));
 
 module.exports = {
   valorVenta,
@@ -64,7 +125,10 @@ module.exports = {
   unidadesVendidas,
   ventaMayor,
   ticketPromedio,
-  ventasPorCiudad
+  ventasPorCiudad,
+  totalVendidoM,
+  unidadesVendidasM,
+  ventasPorCiudadM
 };
 
 /* // cantidad de datos
