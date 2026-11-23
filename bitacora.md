@@ -138,3 +138,30 @@ Resultado: 356000.
 - **Entrada:** un arreglo vacio, por ejemplo las ventas del 2026-09-10.
 - **Correccion:** en ticketPromedio, si validas es 0 devuelvo 0.
 
+## Reto 5: generador de datos
+
+### Prediccion
+
+Si n se multiplica por 10:
+- totalVendido: las operaciones se multiplican por 10.
+- ventaMayor: se multiplican por 10.
+- totalPorCiudad: se multiplican por 10.
+- primeraVenta: no cambia.
+
+### Resultados de las mediciones
+
+| n | Total vendido | Venta mayor | Total por ciudad | Primera venta |
+|---:|---:|---:|---:|---:|
+| 100 | 100 | 299 | 200 | 1 |
+| 1.000 | 1.000 | 2.999 | 2.000 | 1 |
+| 10.000 | 10.000 | 29.999 | 20.000 | 1 |
+| 100.000 | 100.000 | 299.999 | 200.000 | 1 |
+
+### Comparacion
+
+Las predicciones coincidieron con los resultados.
+
+- `totalVendidoInstrumentado`: crecimiento lineal. O(n)
+- `ventaMayorInstrumentada`: crecimiento lineal. O(n)
+- `totalPorCiudadInstrumentado`: crecimiento lineal. O(n)
+- `primeraVentaInstrumentada`: accede directamente a la primera posición. O(1)
