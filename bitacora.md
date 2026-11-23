@@ -201,4 +201,64 @@ En el peor caso, recurrentes crece mucho y cada includes tiene que recorrer una 
 
 El reporte se vuelve lento porque, para saber que clientes repiten compra, el programa compara cada venta con todas las demas.
 
+## MiniReto 7 — Tiempo, memoria y cadenas de métodos
+
+### Funciones construidas
+
+- `totalCiudadCadena(ventas, ciudad)`: utiliza `map`, `filter`, `map` y `reduce`.
+- `totalCiudadUnaPasada(ventas, ciudad)`: utiliza un ciclo `for...of` y un acumulador.
+
+### Comprobación
+
+Se generaron 10.000 ventas utilizando `generarVentas(10000)`.
+Se ejecutaron ambas funciones con los mismos datos y la ciudad Medellín.
+Los resultados fueron iguales:
+
+`resultadoCadena === resultadoUnaPasada`
+- Sele le agrego condiciones con `?` "SI" : "NO" 
+Resultado de la comparación: `SI`.
+
+### Comparación de recorridos y arreglos
+
+| Característica | Métodos encadenados | Un solo ciclo |
+|---|---:|---:|
+| Recorridos | 4 | 1 |
+| Arreglos intermedios | 3 | 0 |
+| Complejidad temporal | O(n) | O(n) |
+| Complejidad espacial adicional | O(n) | O(1) |
+
+La versión encadenada realiza cuatro recorridos. Crea tres arreglos intermedios `map`, `filter`, `map` y `reduce` devuelve un valor y no crea un arreglo.
+
+Ambas funciones tienen complejidad temporal lineal, aunque la cantidad de recorridos sea diferente.
+
+### Clasificación espacial del motor
+
+| Función | Complejidad espacial |
+|---|---|
+| `valorVenta` | O(1) |
+| `totalVendido` | O(1) |
+| `unidadesVendidas` | O(1) |
+| `ventaMayor` | O(1) |
+| `ticketPromedio` | O(1) |
+| `ventasPorCiudad` | O(1) |
+| `totalVendidoM` | O(n) |
+| `unidadesVendidasM` | O(1) |
+| `ventasPorCiudadM` | O(n) |
+| `totalPorCiudad` | O(n) en el peor caso |
+| `unidadesPorProducto` | O(n) en el peor caso |
+| `topProductosPorValor` | O(n) en el peor caso |
+| `ventasDelDia` | O(n) |
+| `generarVentas` | O(n) |
+| `totalVendidoInstrumentado` | O(1) |
+| `ventaMayorInstrumentada` | O(1) |
+| `totalPorCiudadInstrumentado` | O(n) en el peor caso |
+| `primeraVentaInstrumentada` | O(1) |
+| `clientesRecurrentes` | O(n) |
+| `totalCiudadCadena` | O(n) |
+| `totalCiudadUnaPasada` | O(1) |
+
+### Decisión final
+
+Decidí conservar `totalCiudadUnaPasada()` como implementación principal del motor.
+Aunque ambas funciones tienen complejidad temporal O(n), la versión de un solo ciclo necesita memoria adicional O(1), mientras que la versión encadenada necesita O(n).
 
