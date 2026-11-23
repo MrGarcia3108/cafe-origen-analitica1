@@ -1,4 +1,3 @@
-
 const generarVentas = require("./generador.js");
 
 const {

@@ -1,4 +1,3 @@
-
 function totalVendidoInstrumentado(ventas, contador) {
   let total = 0;
   for (const venta of ventas) {

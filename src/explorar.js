@@ -1,4 +1,3 @@
-
 const ventas = require("./datos.js");
 
 const {
