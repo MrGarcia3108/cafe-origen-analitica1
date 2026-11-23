@@ -165,3 +165,40 @@ Las predicciones coincidieron con los resultados.
 - `ventaMayorInstrumentada`: crecimiento lineal. O(n)
 - `totalPorCiudadInstrumentado`: crecimiento lineal. O(n)
 - `primeraVentaInstrumentada`: accede directamente a la primera posición. O(1)
+
+## Reto 6: ciclos anidados
+
+### Tiempos medidos
+
+| n | Tiempo (ms) |
+|---|---|
+| 1.000 | 5.435 ms |
+| 2.000 | 14.056 ms |
+| 4.000 | 49.17 ms |
+| 8.000 | 253.287 ms |
+| 16.000 | 924.78 ms |
+
+### Estimacion
+
+Cuando n se duplica, el tiempo se multiplica.
+
+Con el tiempo de n = 16.000 (924.78 ms):
+
+Utilizamos los ms de 16000 y dividimos 100000/16000 y el resultado los elevamos a la dos: 39.06
+
+100.000 = 924.78 ms x 39.06 = 36.121 ms = 36.1 seg
+1.000.000 = 924.78 ms x 3906.25 = 3.612.421,87 = 60,2 min 
+
+Medicion real con 100.000: 48.968s ms.
+
+### Costo oculto
+
+Revisa los elementos de recurrentes uno por uno hasta encontrar el cliente.
+
+En el peor caso, recurrentes crece mucho y cada includes tiene que recorrer una lista larga.
+
+### Conclusion
+
+El reporte se vuelve lento porque, para saber que clientes repiten compra, el programa compara cada venta con todas las demas.
+
+
