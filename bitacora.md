@@ -282,7 +282,7 @@ La solución original compara cada venta con las demás. La cantidad de comparac
 
 Archivo `optimizadas.js` con las funciones `clientesRecurrentesSet()`, `comprasPorCliente()` y `clientesRecurrentesMap()`. También `verificar.js` y `medir.js`.
 
-### 6. Probar
+### Probar
 Las tres versiones entregan los mismos resultados, 5.000 ventas generadas y los casos borde.
 
 ### Mediciones de rendimiento
@@ -292,3 +292,30 @@ Las tres versiones entregan los mismos resultados, 5.000 ventas generadas y los 
 | 1.000 | 14.649ms | 0.499ms | 1.108ms |
 | 10.000 | 951.907ms | 4.703ms | 5.808ms |
 | 100.000 | No se ejecuta, tiene un alto costo de ejecucion | 67.27ms | 66.372ms |
+
+## MiniReto 10: Combos y frecuencias
+
+### Traza del combo de $87.000
+
+| Precio actual | Complemento | ¿Existe en Map? |
+|---|---|---|
+| 26.000 | 61.000 | No |
+| 42.000 | 45.000 | No |
+| 45.000 | 42.000 | Sí |
+
+Resultado esperado: Origen Huila 500 g y Origen Sierra 500 g.
+
+### Conteo de frecuencias
+
+- Utilicé un Map por ciudad para contar las apariciones de cada producto.
+- Para encontrar el primer cliente único, reutilicé `comprasPorCliente()`.
+
+### Complejidades
+
+| Función | Tiempo | Espacio |
+|---|---|---|
+| comboRegaloFuerzaBruta | O(n²) | O(1) |
+| comboRegalo | O(n) | O(n) |
+| productoEstrellaPorCiudad | O(n) | O(n) |
+| primerClienteUnico | O(n) | O(n) |
+
