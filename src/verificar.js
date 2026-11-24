@@ -96,7 +96,6 @@ verificarRecurrentes(
 const compras = o.comprasPorCliente(ventas);
 
 console.log("\nCompras por cliente:");
-
 console.table(
     [...compras].map(([cliente, cantidad]) => ({
         cliente,

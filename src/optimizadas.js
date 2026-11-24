@@ -37,6 +37,7 @@ function clientesRecurrentesMap(ventas) {
     }
   }
 
+  
   return recurrentes;
 }
 

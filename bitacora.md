@@ -279,6 +279,7 @@ La solución original compara cada venta con las demás. La cantidad de comparac
 - **Map:** contar las compras de cada cliente e identificar aquellos con más de una compra.
 
 ### Implementar
+
 Archivo `optimizadas.js` con las funciones `clientesRecurrentesSet()`, `comprasPorCliente()` y `clientesRecurrentesMap()`. También `verificar.js` y `medir.js`.
 
 ### 6. Probar
