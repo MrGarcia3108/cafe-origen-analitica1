@@ -17,7 +17,7 @@ function clientesRecurrentes(ventas) {
   return recurrentes;
 }
 
-const tamanos = [1000, 2000, 4000, 8000, 16000, 100000];
+const tamanos = [1000, 2000, 4000, 8000, 16000];
 
 const resultados = [];
 
@@ -42,4 +42,5 @@ for (const n of tamanos) {
 
 console.table(resultados);
 
-module.exports = clientesRecurrentes;
+module.exports = {
+  clientesRecurrentes};

@@ -1,4 +1,6 @@
 const generarVentas = require("./generador.js");
+const r = require("./recurrentes.js");
+const o = require("./optimizadas.js");
 
 const {
   totalVendidoInstrumentado,
@@ -37,3 +39,35 @@ for (const n of tamanos) {
 }
 
 console.table(resultados);
+
+const tamanosRecurrentes = [1000, 10000, 100000];
+
+console.log("RENDIMIENTO - MINIRETO 9");
+
+for (const n of tamanosRecurrentes) {
+  const ventas = generarVentas(n);
+
+  console.log("\nCantidad de ventas:", n);
+
+  if (n <= 10000) {
+    console.time("Original");
+
+    r.clientesRecurrentes(ventas);
+
+    console.timeEnd("Original");
+  } else {
+    console.log("Original: No ejecutada por su alto costo");
+  }
+
+  console.time("Set");
+
+  o.clientesRecurrentesSet(ventas);
+
+  console.timeEnd("Set");
+
+  console.time("Map");
+
+  o.clientesRecurrentesMap(ventas);
+
+  console.timeEnd("Map");
+}

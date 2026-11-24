@@ -262,3 +262,32 @@ Ambas funciones tienen complejidad temporal lineal, aunque la cantidad de recorr
 Decidí conservar `totalCiudadUnaPasada()` como implementación principal del motor.
 Aunque ambas funciones tienen complejidad temporal O(n), la versión de un solo ciclo necesita memoria adicional O(1), mientras que la versión encadenada necesita O(n).
 
+## MiniReto 9: Optimización de clientes recurrentes
+
+### Entender el problema
+La función original utiliza ciclos anidados para encontrar clientes recurrentes,e l objetivo es procesar 100.000 ventas en menos de un segundo.
+
+### Analizar ejemplos
+Con los datos del Día 1, los clientes recurrentes esperados son C01, C02 y C03, porque aparecen más de una vez.
+
+### Fuerza bruta
+La solución original compara cada venta con las demás. La cantidad de comparaciones crece de forma cuadrática y el uso de `includes()` puede aumentar su costo.
+
+### Optimizar
+
+- **Set:** detectar clientes repetidos y evitar duplicados.
+- **Map:** contar las compras de cada cliente e identificar aquellos con más de una compra.
+
+### Implementar
+Archivo `optimizadas.js` con las funciones `clientesRecurrentesSet()`, `comprasPorCliente()` y `clientesRecurrentesMap()`. También `verificar.js` y `medir.js`.
+
+### 6. Probar
+Las tres versiones entregan los mismos resultados, 5.000 ventas generadas y los casos borde.
+
+### Mediciones de rendimiento
+
+| Ventas | Original | Set | Map |
+|---|---|---|---|
+| 1.000 | 14.649ms | 0.499ms | 1.108ms |
+| 10.000 | 951.907ms | 4.703ms | 5.808ms |
+| 100.000 | No se ejecuta, tiene un alto costo de ejecucion | 67.27ms | 66.372ms |
