@@ -319,3 +319,47 @@ Resultado esperado: Origen Huila 500 g y Origen Sierra 500 g.
 | productoEstrellaPorCiudad | O(n) | O(n) |
 | primerClienteUnico | O(n) | O(n) |
 
+## MiniReto 11: La mejor racha y el presupuesto
+
+### Traza
+
+Primera ventana: [320, 410, 280, 390, 510, 620, 700] 300 290
+Total: 3230.
+
+Segunda ventana: 320 [410, 280, 390, 510, 620, 700, 300] 290
+Total: 3230 - 320 + 300 = 3210.
+
+Tercera ventana: 320 410 [280, 390, 510, 620, 700, 300, 290]
+Total: 3210 - 410 + 290 = 3090.
+
+### Traza: presupuesto de $100.000
+
+| Izquierda | Derecha | Suma | Acción |
+|---|---|---|---|
+| 18.000 | 120.000 | 138.000 | Derecha-- |
+| 18.000 | 95.000 | 113.000 | Derecha-- |
+| 18.000 | 79.000 | 97.000 | Guardar, izquierda++ |
+| 26.000 | 79.000 | 105.000 | Derecha-- |
+| 26.000 | 45.000 | 71.000 | Izquierda++ |
+| 35.000 | 45.000 | 80.000 | Izquierda++ |
+| 42.000 | 45.000 | 87.000 | Izquierda++ |
+
+Resultados esperados:
+- $100.000: combinación de $97.000.
+- $140.000: combinación exacta de $140.000.
+- $40.000: null.
+
+### Complejidades
+
+| Función | Tiempo | Espacio |
+|---|---|---|
+| mejorSemanaBruta | O(n · k) | O(1) |
+| mejorSemana | O(n) | O(1) |
+| parMasCercano | O(n log n) | O(n) |
+
+### Mediciones
+
+| Días | bruta | deslizante |
+|---|---|---|
+| 30 | 0.207ms | 0.245ms |
+| 100.000 | 3.445ms | 1.23ms |
