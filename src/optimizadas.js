@@ -107,6 +107,84 @@ function primerClienteUnico(ventas) {
     return null;
 }
 
+function mejorSemanaBruta(dias, k) {
+    if (!Number.isInteger(k) || k <= 0 || k > dias.length) {
+        return null;
+    }
+    let totalMaximo = -Infinity;
+    let diaInicio = 0;
+    for (let i = 0; i <= dias.length - k; i++) {
+        let total = 0;
+        for (let j = i; j < i + k; j++) {
+            total += dias[j];
+        }
+        if (total > totalMaximo) {
+            totalMaximo = total;
+            diaInicio = i + 1;
+        }
+    }
+    return {
+        total: totalMaximo,
+        diaInicio: diaInicio
+    };
+}
+
+function mejorSemana(dias, k) {
+    if (!Number.isInteger(k) || k <= 0 || k > dias.length) {
+        return null;
+    }
+    let sumaVentana = 0;
+    for (let i = 0; i < k; i++) {
+        sumaVentana += dias[i];
+    }
+    let totalMaximo = sumaVentana;
+    let diaInicio = 1;
+    for (let i = k; i < dias.length; i++) {
+        sumaVentana += dias[i];
+        sumaVentana -= dias[i - k];
+        if (sumaVentana > totalMaximo) {
+            totalMaximo = sumaVentana;
+            diaInicio = i - k + 2;
+        }
+    }
+    return {
+        total: totalMaximo,
+        diaInicio: diaInicio
+    };
+}
+
+function parMasCercano(precios, presupuesto) {
+    const ordenados = [...precios].sort(
+        (a, b) => a.precio - b.precio
+    );
+    let izquierda = 0;
+    let derecha = ordenados.length - 1;
+    let mejorPar = null;
+    let mejorSuma = -Infinity;
+
+    while (izquierda < derecha) {
+        const suma =
+            ordenados[izquierda].precio +
+            ordenados[derecha].precio;
+        if (suma > presupuesto) {
+            derecha--;
+        }
+        else {
+            if (suma > mejorSuma) {
+                mejorSuma = suma;
+                mejorPar = [
+                    ordenados[izquierda],
+                    ordenados[derecha]
+                ];
+            }
+            if (suma === presupuesto) {
+                return mejorPar;
+            }
+            izquierda++;
+        }
+    }
+    return mejorPar;
+}
 
 module.exports = {
   clientesRecurrentesSet,
@@ -115,5 +193,8 @@ module.exports = {
   comboRegaloFuerzaBruta,
   comboRegalo,
   productoEstrellaPorCiudad,
-  primerClienteUnico
+  primerClienteUnico,
+  mejorSemanaBruta,
+  mejorSemana,
+  parMasCercano
 };
