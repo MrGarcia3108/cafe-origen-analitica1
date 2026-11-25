@@ -363,3 +363,82 @@ Resultados esperados:
 |---|---|---|
 | 30 | 0.207ms | 0.245ms |
 | 100.000 | 3.445ms | 1.23ms |
+
+## Día 3 - MiniReto 12: Lanzamiento Café Origen v1.0
+
+### Objetivo
+
+Integrar las funciones optimizadas en un reporte final, comparar el rendimiento de las versiones v0.1 y v1.0 y documentar el producto para su entrega.
+
+### Método de resolución
+
+1. **Entender:** identificar las funcionalidades que debía incluir el reporte final.
+2. **Ejemplificar:** ejecutar el reporte con datos originales y ventas generadas.
+3. **Solución inicial:** reutilizar el reporte desarrollado durante el Día 1.
+4. **Optimizar:** integrar las funciones eficientes de los MiniRetos 9, 10 y 11.
+5. **Implementar:** utilizar process.argv, integrar módulos y medir el tiempo de ejecución.
+6. **Verificar:** comprobar resultados, rendimiento y funcionamiento desde un clon limpio.
+
+### Implementación
+
+Actualicé reporte.js conservando las secciones originales e incorporando clientes recurrentes, producto estrella por ciudad, combo de regalo, cliente para cupón, mejor semana y presupuesto corporativo.
+
+Utilicé process.argv para seleccionar entre los datos originales y las ventas generadas. También incorporé process.hrtime.bigint() para medir el tiempo de ejecución.
+
+En medir.js agregué una comparación integrada entre los algoritmos originales y los optimizados.
+
+### Resultados esperados
+
+| Indicador | Resultado |
+|---|---|
+| Total vendido | $985.000 |
+| Unidades vendidas | 21 |
+| Clientes recurrentes | C01, C02 y C03 |
+| Combo de regalo | $87.000 |
+| Cliente para cupón | C04 |
+| Mejor semana | Del 24 al 30 de septiembre |
+| Total de mejor semana | $3.670.000 |
+| Presupuesto corporativo utilizado | $97.000 |
+
+### Verificación final
+
+- Reporte con datos originales: pendiente de confirmar.
+- Reporte con 10.000 ventas: pendiente de confirmar.
+- Reporte con 100.000 ventas: pendiente de confirmar.
+- Tiempo de ejecución inferior a cinco segundos: pendiente de medir.
+- Comparación v0.1 vs. v1.0: pendiente de registrar.
+- Clon limpio: pendiente de verificar.
+
+### Aprendizaje
+
+Comprendí cómo integrar diferentes módulos en un producto funcional, recibir argumentos desde la terminal y medir el rendimiento de un programa completo.
+
+## Resumen 12 MiniRetos
+
+| MiniReto | Trabajo realizado |
+|---|---|
+| 1 | Creación del repositorio, exploración de datos y diccionario de información. |
+| 2 | Desarrollo de funciones mediante ciclos y condicionales. |
+| 3 | Uso de map, filter, reduce, agrupaciones y rankings. |
+| 4 | Verificación de resultados y creación del reporte v0.1. |
+| 5 | Generación de ventas y conteo de operaciones. |
+| 6 | Identificación de clientes recurrentes mediante fuerza bruta. |
+| 7 | Comparación de métodos encadenados y recorridos de una sola pasada. |
+| 8 | Análisis de complejidades, rendimiento y proyecciones. |
+| 9 | Optimización de clientes recurrentes mediante Set y Map. |
+| 10 | Búsqueda de complementos y conteo de frecuencias mediante Map. |
+| 11 | Implementación de ventana deslizante y dos punteros. |
+| 12 | Integración, documentación y preparación del lanzamiento v1.0. |
+
+## Estrategias 
+
+| Problema | Estrategia | Beneficio |
+|---|---|---|
+| Total por ciudad | Una sola pasada | Menor uso de memoria. |
+| Clientes recurrentes | Set y Map | Evitar comparaciones entre pares. |
+| Combo de regalo | Map de complementos | Encontrar combinaciones. |
+| Producto estrella | Map de frecuencias | Contabilizar. |
+| Primer cliente único | Map y dos recorridos | Evitar búsquedas repetidas. |
+| Mejor semana | Ventana deslizante | Reutilizar las sumas anteriores. |
+| Presupuesto corporativo | Dos punteros | Descartar combinaciones. |
+| Reporte final | Integración de algoritmos eficientes | Procesar grandes cantidades de datos. |
